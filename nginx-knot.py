@@ -7,7 +7,7 @@ import argparse
 
 
 # === Logging Configuration ===
-LOG_FILE = "/var/log/microservice_route_configurator.log"
+LOG_FILE = "/var/log/nginx_knot.log"
 logging.basicConfig(
     filename=LOG_FILE,
     level=logging.INFO,
@@ -26,7 +26,7 @@ DEFAULT_PROXY_TIMEOUTS = {
 
 
 def process_config(data):
-    logging.info("[INIT] Starting to process request: %s", data)
+    logging.info("[Starting to process request %s ]", data)
 
     ensure_dirs()
     ms_list = data["ms"]
@@ -64,7 +64,7 @@ def process_config(data):
     if reload_flag and not reload_nginx():
         logging.error("[Aborting]: NGINX reload failed.")
 
-    logging.info("[ ****[NGINX CONFIGURATOR SUCCESSFULLY EXECUTED]**** ]")
+    logging.info("[ ****[NGINX-KNOT SUCCESSFULLY EXECUTED]**** ]")
 
 
 def ensure_dirs():
@@ -142,13 +142,13 @@ def delete_configs(upstream_name):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Microservice NGINX Configurator")
-    parser.add_argument("--delete", help="Name of the upstream to delete", required=False)
-    parser.add_argument("--file", help="Path to the microservice route config JSON file", required=False, default="ms_route_config.json")
+    parser = argparse.ArgumentParser(description="NGINX Configurator")
+    parser.add_argument("--delete", help="Name the upstream to delete from /etc/nginx/upstreams dir", required=False)
+    parser.add_argument("--file", help="Path to JSON config to add in /etc/nginx/upstreams and /etc/nginx/locations", required=False, default="fleet_route_config.json")
     args = parser.parse_args()
 
     try:
-        logging.info("[ ****[NGINX CONFIGURATOR INITIATED]**** ]")
+        logging.info("[ ****[NGINX KNOT INITIATED]**** ]")
 
         if args.delete:
             ensure_dirs()
