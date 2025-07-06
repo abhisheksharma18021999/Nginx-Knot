@@ -2,22 +2,21 @@
 
 A dynamic NGINX microservice route configurator – **tie your fleet of thousands of microservices into a single reverse proxy configuration** with ease.
 
----
 
-## 🔧 What is nginx-knot?
+### 🔧 What is nginx-knot?
 
 `nginx-knot` is a CLI-based tool that automates the generation, validation, and cleanup of NGINX configuration blocks (`upstream` and `location`) for microservices.
 
 It helps teams:
 - Dynamically generate and manage reverse proxy configurations.
 - Keep NGINX configs modular, organized, and scalable.
+- add custom routes with custom server timeouts with one cmd execution.
 - Avoid manual errors in `nginx.conf` maintenance.
 - Centrally control and version service routes.
 - Maintain audit logs of all config changes.
 
----
 
-## 🌟 Features
+### 🌟 Features
 
 ✅ Automatically generates:
 - `upstream` blocks with IP:port service definitions.
@@ -39,9 +38,8 @@ It helps teams:
 ✅ Logging:
 - All actions logged at: `/var/log/nginx_knot.log`
 
----
 
-## 📁 NGINX Config Structure
+### 📁 NGINX Config Structure
 ```
 /etc/nginx/
 ├── upstreams/                  # Contains dynamically generated upstream blocks
@@ -60,7 +58,7 @@ It helps teams:
                                 #   include /etc/nginx/sites-enabled/*;
 ```
 
-## Sample Route Json
+### Sample Route Json
 ```
 {
   "ms": [
@@ -83,7 +81,7 @@ It helps teams:
 }
 ```
 
-## ⚙️ Required NGINX Configuration
+### ⚙️ Required NGINX Configuration
 🔧 In nginx.conf add below give config.
 This ensures that your microservice upstream definitions are globally available to all virtual hosts or server blocks.
 
@@ -116,7 +114,7 @@ server {
 }
 ```
 
-## 🛠️ How to Use & 🧪 Validate
+### 🛠️ How to Use & 🧪 Validate
 ```
 # Add or Update Service Configs
 python3 nginx-knot.py --file=/path/to/fleet_config.json
@@ -132,7 +130,11 @@ tail -100f /var/log/nginx_knot.log
 
 ```
 
-## 🪪 License
+### Future Scope
+Add Custom Email alerts , Google Chat Alets and Slack alerting.
+Add any type of config from route_config json not just only fixed type. 
 
+
+### 🪪 License
 This project is licensed under the [MIT License](./LICENSE).
 
