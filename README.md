@@ -135,6 +135,11 @@ Add Custom Email alerts , Google Chat Alets and Slack alerting.
 Add any type of config from route_config json not just only fixed type. 
 
 
+### 📚 Full Documentation on NGINX Internals
+
+[![View on Notion](https://img.shields.io/badge/View%20Docs-Notion-blue?logo=notion&style=for-the-badge)](https://abhishek-blogs.notion.site/NGINX-Internals-2195d179324380db8174e3e207d829cf)
+
+
 ### 🪪 License
 This project is licensed under the [MIT License](./LICENSE).
 
