@@ -1,0 +1,19 @@
+{
+  "ms": [
+    {
+      "path": "^/user-service/",
+      "upstream_name": "user_service",
+      "upstream_ips": "10.10.0.11:8111",
+      "action": "add"
+    },
+    {
+      "path": "^/login-service/",
+      "upstream_name": "login_service",
+      "upstream_ips": "10.10.0.12:8111",
+      "action": "add"
+    }
+  ],
+  "check_config_already_exits": true,
+  "validate_nginx": true,
+  "reload_nginx": false
+}
